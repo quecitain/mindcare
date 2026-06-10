@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - Financeiro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
+    <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MindCare</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="agenda.html">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Agenda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pacientes.html">
+                            <i class="fas fa-users"></i>
+                            <span>Pacientes</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="financeiro.html">
+                            <i class="fas fa-wallet"></i>
+                            <span>Financeiro</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="relatorios.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Relatórios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="configuracoes.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Configurações</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="[ui-avatars.com](https://ui-avatars.com/api/?name=Dr+Silva&background=6366f1&color=fff)" alt="Avatar" class="user-avatar">
+                    <div class="user-details">
+                        <span class="user-name">Dr. Silva</span>
+                        <span class="user-role">Psicólogo</span>
+                    </div>
+                </div>
+                <button class="btn-logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="page-title">
+                        <h1>Financeiro</h1>
+                        <p>Controle suas receitas e despesas</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="btn-secondary" id="btnNovaDespesa">
+                        <i class="fas fa-minus-circle"></i>
+                        Nova Despesa
+                    </button>
+                    <button class="btn-primary" id="btnNovaReceita">
+                        <i class="fas fa-plus-circle"></i>
+                        Nova Receita
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Content -->
+            <div class="page-content">
+                <!-- Stats Cards -->
+                <div class="finance-stats">
+                    <div class="finance-stat-card receitas">
+                        <div class="stat-icon">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Receitas (Junho)</span>
+                            <span class="stat-value">R$ 18.500,00</span>
+                            <span class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 12% vs mês anterior
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="finance-stat-card despesas">
+                        <div class="stat-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Despesas (Junho)</span>
+                            <span class="stat-value">R$ 2.660,00</span>
+                            <span class="stat-change negative">
+                                <i class="fas fa-arrow-up"></i> 5% vs mês anterior
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="finance-stat-card saldo">
+                        <div class="stat-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Saldo (Junho)</span>
+                            <span class="stat-value">R$ 15.840,00</span>
+                            <span class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 15% vs mês anterior
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="finance-stat-card pendentes">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Valores Pendentes</span>
+                            <span class="stat-value">R$ 1.750,00</span>
+                            <span class="stat-info">7 pagamentos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Filters -->
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <select id="filterMes">
+                            <option value="06">Junho 2026</option>
+                            <option value="05">Maio 2026</option>
+                            <option value="04">Abril 2026</option>
+                            <option value="03">Março 2026</option>
+                        </select>
+                        <select id="filterTipo">
+                            <option value="">Todos os tipos</option>
+                            <option value="receita">Receitas</option>
+                            <option value="despesa">Despesas</option>
+                        </select>
+                        <select id="filterStatus">
+                            <option value="">Todos os status</option>
+                            <option value="pago">Pago</option>
+                            <option value="pendente">Pendente</option>
+                            <option value="atrasado">Atrasado</option>
+                        </select>
+                    </div>
+                    <button class="btn-secondary">
+                        <i class="fas fa-download"></i>
+                        Exportar
+                    </button>
+                </div>
+                
+                <!-- Transactions Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-list"></i> Movimentações</h2>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table" id="financeiroTable">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Descrição</th>
+                                    <th>Categoria</th>
+                                    <th>Tipo</th>
+                                    <th>Valor</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="financeiroTableBody">
+                                <tr>
+                                    <td>03/06/2026</td>
+                                    <td>
+                                        <div class="transaction-desc">
+                                            <span>Consulta - Maria Santos</span>
+                                            <small>Terapia Individual</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-badge consulta">Consulta</span></td>
+                                    <td><span class="type-badge receita">Receita</span></td>
+                                    <td class="value receita">R$ 250,00</td>
+                                    <td><span class="status-badge pago">Pago</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon-small" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon-small" title="Excluir">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>03/06/2026</td>
+                                    <td>
+                                        <div class="transaction-desc">
+                                            <span>Consulta - João Oliveira</span>
+                                            <small>Avaliação Psicológica</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-badge consulta">Consulta</span></td>
+                                    <td><span class="type-badge receita">Receita</span></td>
+                                    <td class="value receita">R$ 350,00</td>
+                                    <td><span class="status-badge pendente">Pendente</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon-small btn-confirm" title="Confirmar Pagamento">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                            <button class="btn-icon-small" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>02/06/2026</td>
+                                    <td>
+                                        <div class="transaction-desc">
+                                            <span>Aluguel do Consultório</span>
+                                            <small>Despesa Fixa</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-badge aluguel">Aluguel</span></td>
+                                    <td><span class="type-badge despesa">Despesa</span></td>
+                                    <td class="value despesa">R$ 1.800,00</td>
+                                    <td><span class="status-badge pago">Pago</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon-small" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon-small" title="Excluir">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>02/06/2026</td>
+                                    <td>
+                                        <div class="transaction-desc">
+                                            <span>Consulta - Ana Costa</span>
+                                            <small>Terapia Individual</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-badge consulta">Consulta</span></td>
+                                    <td><span class="type-badge receita">Receita</span></td>
+                                    <td class="value receita">R$ 250,00</td>
+                                    <td><span class="status-badge pago">Pago</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon-small" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon-small" title="Excluir">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>01/06/2026</td>
+                                    <td>
+                                        <div class="transaction-desc">
+                                            <span>Material de Escritório</span>
+                                            <small>Papelaria</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-badge material">Material</span></td>
+                                    <td><span class="type-badge despesa">Despesa</span></td>
+                                    <td class="value despesa">R$ 85,00</td>
+                                    <td><span class="status-badge pago">Pago</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon-small" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon-small" title="Excluir">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>01/06/2026</td>
+                                    <td>
+                                        <div class="transaction-desc">
+                                            <span>Consulta - Pedro Lima</span>
+                                            <small>Primeira Consulta</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-badge consulta">Consulta</span></td>
+                                    <td><span class="type-badge receita">Receita</span></td>
+                                    <td class="value receita">R$ 300,00</td>
+                                    <td><span class="status-badge atrasado">Atrasado</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon-small btn-confirm" title="Confirmar Pagamento">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                            <button class="btn-icon-small" title="Enviar Lembrete">
+                                                <i class="fas fa-bell"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <span class="pagination-info">Mostrando 1-6 de 48 transações</span>
+                        <div class="pagination-controls">
+                            <button class="btn-pagination" disabled>
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="btn-pagination active">1</button>
+                            <button class="btn-pagination">2</button>
+                            <button class="btn-pagination">3</button>
+                            <span>...</span>
+                            <button class="btn-pagination">8</button>
+                            <button class="btn-pagination">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal Nova Receita/Despesa -->
+    <div class="modal-overlay" id="modalFinanceiro">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalFinanceiroTitle">Nova Receita</h2>
+                <button class="btn-close" id="closeModalFinanceiro">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="formFinanceiro">
+                <input type="hidden" id="tipoTransacao" value="receita">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dataTransacao">Data *</label>
+                            <input type="date" id="dataTransacao" name="data" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="valorTransacao">Valor (R$) *</label>
+                            <input type="number" id="valorTransacao" name="valor" step="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="descricaoTransacao">Descrição *</label>
+                        <input type="text" id="descricaoTransacao" name="descricao" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="categoriaTransacao">Categoria</label>
+                            <select id="categoriaTransacao" name="categoria">
+                                <option value="consulta">Consulta</option>
+                                <option value="avaliacao">Avaliação</option>
+                                <option value="laudo">Laudo</option>
+                                <option value="palestra">Palestra/Workshop</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="formaPagamento">Forma de Pagamento</label>
+                            <select id="formaPagamento" name="forma_pagamento">
+                                <option value="dinheiro">Dinheiro</option>
+                                <option value="pix">PIX</option>
+                                <option value="cartao_credito">Cartão de Crédito</option>
+                                <option value="cartao_debito">Cartão de Débito</option>
+                                <option value="transferencia">Transferência</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pacienteTransacao">Paciente (opcional)</label>
+                        <select id="pacienteTransacao" name="paciente_id">
+                            <option value="">Selecione um paciente</option>
+                            <option value="1">Maria Santos</option>
+                            <option value="2">João Oliveira</option>
+                            <option value="3">Ana Costa</option>
+                            <option value="4">Pedro Lima</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="observacoesTransacao">Observações</label>
+                        <textarea id="observacoesTransacao" name="observacoes" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" id="cancelModalFinanceiro">Cancelar</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-save"></i>
+                        Salvar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Toast -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span class="toast-message">Mensagem</span>
+    </div>
+    
+    <script src="../js/app.js"></script>
+    <script src="../js/financeiro.js"></script>
+</body>
+</html>

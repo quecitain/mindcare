@@ -1,0 +1,82 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Dr. Carlos Silva",
+      "email": "admin@mindcare.com",
+      "crp": "06/123456",
+      "role": "admin"
+    }
+  ],
+  "pacientes": [
+    {
+      "id": 1,
+      "nome": "Maria Santos",
+      "email": "maria.santos@email.com",
+      "telefone": "(11) 98765-4321",
+      "tratamento": "individual",
+      "status": "ativo",
+      "sessoes": 12
+    },
+    {
+      "id": 2,
+      "nome": "João Oliveira",
+      "email": "joao.oliveira@email.com",
+      "telefone": "(11) 91234-5678",
+      "tratamento": "avaliacao",
+      "status": "ativo",
+      "sessoes": 3
+    },
+    {
+      "id": 3,
+      "nome": "Ana Costa",
+      "email": "ana.costa@email.com",
+      "telefone": "(11) 94567-8901",
+      "tratamento": "individual",
+      "status": "ativo",
+      "sessoes": 8
+    },
+    {
+      "id": 4,
+      "nome": "Pedro Lima",
+      "email": "pedro.lima@email.com",
+      "telefone": "(11) 97654-3210",
+      "tratamento": "individual",
+      "status": "ativo",
+      "sessoes": 1
+    },
+    {
+      "id": 5,
+      "nome": "Carla Mendes",
+      "email": "carla.mendes@email.com",
+      "telefone": "(11) 93456-7890",
+      "tratamento": "casal",
+      "status": "ativo",
+      "sessoes": 6
+    }
+  ],
+  "consultas": [
+    {
+      "id": 1,
+      "paciente_id": 1,
+      "data": "2026-06-03",
+      "hora": "09:00",
+      "tipo": "individual",
+      "status": "confirmada"
+    },
+    {
+      "id": 2,
+      "paciente_id": 2,
+      "data": "2026-06-03",
+      "hora": "10:00",
+      "tipo": "avaliacao",
+      "status": "agendada"
+    }
+  ],
+  "financeiro": {
+    "receitas_mes": 18500.00,
+    "despesas_mes": 2660.00,
+    "saldo_mes": 15840.00,
+    "pendentes": 1750.00
+  }
+}

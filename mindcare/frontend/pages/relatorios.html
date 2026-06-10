@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - Relatórios</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
+    <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar (mesmo das outras páginas) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MindCare</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+                    <li><a href="agenda.html"><i class="fas fa-calendar-alt"></i><span>Agenda</span></a></li>
+                    <li><a href="pacientes.html"><i class="fas fa-users"></i><span>Pacientes</span></a></li>
+                    <li><a href="financeiro.html"><i class="fas fa-wallet"></i><span>Financeiro</span></a></li>
+                    <li class="active"><a href="relatorios.html"><i class="fas fa-chart-bar"></i><span>Relatórios</span></a></li>
+                    <li><a href="configuracoes.html"><i class="fas fa-cog"></i><span>Configurações</span></a></li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="[ui-avatars.com](https://ui-avatars.com/api/?name=Dr+Silva&background=6366f1&color=fff)" alt="Avatar" class="user-avatar">
+                    <div class="user-details">
+                        <span class="user-name">Dr. Silva</span>
+                        <span class="user-role">Psicólogo</span>
+                    </div>
+                </div>
+                <button class="btn-logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                    <div class="page-title">
+                        <h1>Relatórios</h1>
+                        <p>Análises e estatísticas do consultório</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <select id="periodoRelatorio" class="select-periodo">
+                        <option value="mes">Este Mês</option>
+                        <option value="trimestre">Último Trimestre</option>
+                        <option value="semestre">Último Semestre</option>
+                        <option value="ano">Este Ano</option>
+                    </select>
+                    <button class="btn-secondary">
+                        <i class="fas fa-download"></i>
+                        Exportar PDF
+                    </button>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                <!-- Report Cards -->
+                <div class="report-grid">
+                    <div class="report-card">
+                        <div class="report-header">
+                            <h3><i class="fas fa-users"></i> Pacientes</h3>
+                        </div>
+                        <div class="report-body">
+                            <div class="report-stat">
+                                <span class="big-number">127</span>
+                                <span class="stat-label">Total de Pacientes</span>
+                            </div>
+                            <div class="report-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Ativos</span>
+                                    <span class="detail-value">98</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Novos (mês)</span>
+                                    <span class="detail-value">5</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Alta (mês)</span>
+                                    <span class="detail-value">2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-card">
+                        <div class="report-header">
+                            <h3><i class="fas fa-calendar-check"></i> Consultas</h3>
+                        </div>
+                        <div class="report-body">
+                            <div class="report-stat">
+                                <span class="big-number">74</span>
+                                <span class="stat-label">Consultas no Mês</span>
+                            </div>
+                            <div class="report-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Realizadas</span>
+                                    <span class="detail-value">68</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Canceladas</span>
+                                    <span class="detail-value">4</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Faltas</span>
+                                    <span class="detail-value">2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-card">
+                        <div class="report-header">
+                            <h3><i class="fas fa-chart-line"></i> Financeiro</h3>
+                        </div>
+                        <div class="report-body">
+                            <div class="report-stat">
+                                <span class="big-number">R$ 15.840</span>
+                                <span class="stat-label">Lucro Líquido</span>
+                            </div>
+                            <div class="report-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Receita Bruta</span>
+                                    <span class="detail-value">R$ 18.500</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Despesas</span>
+                                    <span class="detail-value">R$ 2.660</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Margem</span>
+                                    <span class="detail-value">85.6%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-card">
+                        <div class="report-header">
+                            <h3><i class="fas fa-clock"></i> Produtividade</h3>
+                        </div>
+                        <div class="report-body">
+                            <div class="report-stat">
+                                <span class="big-number">96h</span>
+                                <span class="stat-label">Horas Trabalhadas</span>
+                            </div>
+                            <div class="report-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Média/dia</span>
+                                    <span class="detail-value">4.8h</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Consultas/dia</span>
+                                    <span class="detail-value">5.7</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Taxa Ocupação</span>
+                                    <span class="detail-value">78%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charts Section -->
+                <div class="charts-grid">
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-chart-area"></i> Evolução de Receitas</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="simple-chart">
+                                <div class="chart-bars">
+                                    <div class="chart-bar-wrapper">
+                                        <div class="chart-bar-fill" style="height: 60%"></div>
+                                        <span class="chart-bar-label">Jan</span>
+                                    </div>
+                                    <div class="chart-bar-wrapper">
+                                        <div class="chart-bar-fill" style="height: 75%"></div>
+                                        <span class="chart-bar-label">Fev</span>
+                                    </div>
+                                    <div class="chart-bar-wrapper">
+                                        <div class="chart-bar-fill" style="height: 65%"></div>
+                                        <span class="chart-bar-label">Mar</span>
+                                    </div>
+                                    <div class="chart-bar-wrapper">
+                                        <div class="chart-bar-fill" style="height: 80%"></div>
+                                        <span class="chart-bar-label">Abr</span>
+                                    </div>
+                                    <div class="chart-bar-wrapper">
+                                        <div class="chart-bar-fill" style="height: 70%"></div>
+                                        <span class="chart-bar-label">Mai</span>
+                                    </div>
+                                    <div class="chart-bar-wrapper">
+                                        <div class="chart-bar-fill" style="height: 85%"></div>
+                                        <span class="chart-bar-label">Jun</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-chart-pie"></i> Tipos de Tratamento</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="pie-chart-legend">
+                                <div class="pie-item">
+                                    <span class="pie-color" style="background: #6366f1"></span>
+                                    <span class="pie-label">Terapia Individual</span>
+                                    <span class="pie-value">65%</span>
+                                </div>
+                                <div class="pie-item">
+                                    <span class="pie-color" style="background: #10b981"></span>
+                                    <span class="pie-label">Terapia de Casal</span>
+                                    <span class="pie-value">15%</span>
+                                </div>
+                                <div class="pie-item">
+                                    <span class="pie-color" style="background: #f59e0b"></span>
+                                    <span class="pie-label">Avaliação</span>
+                                    <span class="pie-value">12%</span>
+                                </div>
+                                <div class="pie-item">
+                                    <span class="pie-color" style="background: #ef4444"></span>
+                                    <span class="pie-label">Terapia em Grupo</span>
+                                    <span class="pie-value">8%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span class="toast-message">Mensagem</span>
+    </div>
+    
+    <script src="../js/app.js"></script>
+    <script src="../js/relatorios.js"></script>
+</body>
+</html>
